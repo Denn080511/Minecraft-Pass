@@ -1,0 +1,13 @@
+name: RoyalCrown
+main: com.example.royalcrown.RoyalCrownPlugin
+version: 1.0.0
+api-version: 1.20
+description: Gives players a King's Crown that grants powerful effects and the Royal Arsenal while worn.
+commands:
+  givecrown:
+    description: Give the Royal Crown to a player (op/permission).
+    usage: /givecrown [player]
+permissions:
+  royalcrown.give:
+    description: Allows giving the crown
+    default: op
