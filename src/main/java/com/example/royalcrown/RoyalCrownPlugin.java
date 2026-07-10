@@ -239,7 +239,7 @@ public class RoyalCrownPlugin extends JavaPlugin implements CommandExecutor, Lis
     }
 
     private ItemStack createRoyalShield() {
-        ItemStack shield = new ItemStack(Material.NETHERITE_SHIELD);
+        ItemStack shield = new ItemStack(Material.SHIELD);
         ItemMeta meta = shield.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Royal Shield");
         meta.addEnchant(Enchantment.DURABILITY, 3, true);
