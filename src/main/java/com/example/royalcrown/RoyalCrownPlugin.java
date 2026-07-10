@@ -5,7 +5,11 @@ import java.util.Set;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.NamespacedKey;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeModifier;
+import org.bukkit.attribute.AttributeModifier.Operation;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.CommandExecutor;
@@ -19,12 +23,10 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
-import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
-import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.persistence.PersistentDataContainer;
@@ -32,19 +34,7 @@ import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-import org.bukkit.attribute.Attribute;
-import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.Material;
-import org.bukkit.ChatColor;
-import org.bukkit.attribute.AttributeModifier.Operation;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityShootBowEvent;
-import org.bukkit.event.entity.ProjectileHitEvent;
-import org.bukkit.event.entity.ProjectileLaunchEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.player.PlayerToggleSneakEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
 
 public class RoyalCrownPlugin extends JavaPlugin implements CommandExecutor, Listener {
 
@@ -412,13 +402,11 @@ public class RoyalCrownPlugin extends JavaPlugin implements CommandExecutor, Lis
 
         // Mace: extra smash damage based on attacker's fall distance (only if valid)
         if (pdc.has(maceKey, PersistentDataType.BYTE)) {
-            if (attacker instanceof Player) {
-                double fall = attacker.getFallDistance();
-                if (fall > 0) {
-                    double bonus = fall * 2.0; // tunable multiplier
-                    if (e.getEntity() instanceof LivingEntity) {
-                        ((LivingEntity) e.getEntity()).damage(bonus, attacker);
-                    }
+            double fall = attacker.getFallDistance();
+            if (fall > 0) {
+                double bonus = fall * 2.0; // tunable multiplier
+                if (e.getEntity() instanceof LivingEntity) {
+                    ((LivingEntity) e.getEntity()).damage(bonus, attacker);
                 }
             }
         }
