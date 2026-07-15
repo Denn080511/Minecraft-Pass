@@ -141,17 +141,16 @@ public class RoyalCrownPlugin extends JavaPlugin implements CommandExecutor, Lis
         ItemStack result = createPrinceCrownItem();
         ShapedRecipe recipe = new ShapedRecipe(key, result);
         // Example pattern from the image. We'll use symbols: G = gold_block, N = nether_star? but your image had a totem-like center
-        recipe.shape("GxG", "HcA", "GdG");
-        // Map characters to materials; adjust according to your design (image unclear). Use placeholders:
-        recipe.setIngredient('G', Material.GOLD_BLOCK);
-        recipe.setIngredient('x', Material.AIR);
-        recipe.setIngredient('H', Material.GOLDEN_HELMET);
-        recipe.setIngredient('c', Material.DISPENSER); // you used something like an anvil? adjust as needed
-        recipe.setIngredient('A', Material.GOLDEN_APPLE);
-        recipe.setIngredient('d', Material.DIAMOND_BLOCK);
+        recipe.shape("GTG", "BHA", "GDG");
 
-        // Add to server
-        Bukkit.addRecipe(recipe);
+recipe.setIngredient('G', Material.GOLD_BLOCK);
+recipe.setIngredient('T', Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE);
+recipe.setIngredient('B', new ExactChoice(createBrokenCrownItem()));
+recipe.setIngredient('H', Material.HEAVY_CORE);
+recipe.setIngredient('A', Material.GOLDEN_APPLE);
+recipe.setIngredient('D', Material.DIAMOND_BLOCK);
+
+Bukkit.addRecipe(recipe);
     }
 
     private ItemStack createPrinceCrownItem() {
