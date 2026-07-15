@@ -9,8 +9,8 @@
   <packaging>jar</packaging>
 
   <properties>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
     <!-- Change this Spigot version to match your server if needed -->
     <paper.version>1.21.4-R0.1-SNAPSHOT</paper.version>
   </properties>
