@@ -12,24 +12,24 @@
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <!-- Change this Spigot version to match your server if needed -->
-    <spigot.version>1.20.2-R0.1-SNAPSHOT</spigot.version>
+    <paper.version>1.21.4-R0.1-SNAPSHOT</paper.version>
   </properties>
 
-  <repositories>
+ <repositories>
     <repository>
-      <id>spigot-repo</id>
-      <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        <id>papermc-repo</id>
+        <url>https://repo.papermc.io/repository/maven-public/</url>
     </repository>
-  </repositories>
+</repositories>
 
-  <dependencies>
+<dependencies>
     <dependency>
-      <groupId>org.spigotmc</groupId>
-      <artifactId>spigot-api</artifactId>
-      <version>${spigot.version}</version>
-      <scope>provided</scope>
+        <groupId>io.papermc.paper</groupId>
+        <artifactId>paper-api</artifactId>
+        <version>${paper.version}</version>
+        <scope>provided</scope>
     </dependency>
-  </dependencies>
+</dependencies>
 
   <build>
     <plugins>
