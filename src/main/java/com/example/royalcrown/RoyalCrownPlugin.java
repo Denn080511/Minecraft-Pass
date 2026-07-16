@@ -157,8 +157,8 @@ Bukkit.addRecipe(recipe);
         ItemStack helmet = new ItemStack(Material.LEATHER_HELMET);
         ItemMeta meta = helmet.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Prince's Crown");
-        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1, true);
-        meta.addEnchant(Enchantment.DURABILITY, 2, true);
+        meta.addEnchant(Enchantment.PROTECTION, 1, true);
+        meta.addEnchant(Enchantment.UNBREAKING, 2, true);
         meta.setUnbreakable(false);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         PersistentDataContainer pdc = meta.getPersistentDataContainer();
@@ -219,11 +219,11 @@ Bukkit.addRecipe(recipe);
         p.sendMessage(ChatColor.GRAY + "Your crown has been removed.");
 
         // Remove potion effects (they'll be re-applied when worn)
-        p.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
+        p.removePotionEffect(PotionEffectType.STRENGTH);
         p.removePotionEffect(PotionEffectType.SPEED);
-        p.removePotionEffect(PotionEffectType.DAMAGE_RESISTANCE);
-        p.removePotionEffect(PotionEffectType.FAST_DIGGING);
-        p.removePotionEffect(PotionEffectType.JUMP);
+        p.removePotionEffect(PotionEffectType.RESISTANCE);
+        p.removePotionEffect(PotionEffectType.HASTE);
+        p.removePotionEffect(PotionEffectType.JUMP_BOOST);
         p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
         p.removePotionEffect(PotionEffectType.REGENERATION);
         p.removePotionEffect(PotionEffectType.SATURATION);
@@ -231,10 +231,10 @@ Bukkit.addRecipe(recipe);
 
     private void applyContinuousEffects(Player p) {
         // Permanent while worn effects
-        p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, EFFECT_DURATION_TICKS, STRENGTH_AMPLIFIER, true, false, true));
+        p.addPotionEffect(new PotionEffect(PotionEffectType.STRENGTH, EFFECT_DURATION_TICKS, STRENGTH_AMPLIFIER, true, false, true));
         p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, EFFECT_DURATION_TICKS, 1, true, false, true));
-        p.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, EFFECT_DURATION_TICKS, 1, true, false, true));
-        p.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, EFFECT_DURATION_TICKS, 1, true, false, true));
+        p.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, EFFECT_DURATION_TICKS, 1, true, false, true));
+        p.addPotionEffect(new PotionEffect(PotionEffectType.HASTE, EFFECT_DURATION_TICKS, 1, true, false, true));
         p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, EFFECT_DURATION_TICKS, 1, true, false, true));
         p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, EFFECT_DURATION_TICKS, 0, true, false, true));
         p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, EFFECT_DURATION_TICKS, 0, true, false, true));
@@ -283,8 +283,8 @@ Bukkit.addRecipe(recipe);
         ItemStack sword = new ItemStack(Material.GOLDEN_SWORD);
         ItemMeta meta = sword.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Swordlessed");
-        meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true); // Sharpness I for prince stage
-        meta.addEnchant(Enchantment.DURABILITY, 1, true);
+        meta.addEnchant(Enchantment.SHARPNESS, 1, true); // Sharpness I for prince stage
+        meta.addEnchant(Enchantment.UNBREAKING, 1, true);
         meta.setUnbreakable(false);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_UNBREAKABLE);
 
@@ -293,7 +293,7 @@ Bukkit.addRecipe(recipe);
 
         // modest attack damage attribute
         AttributeModifier dam = new AttributeModifier(UUID.randomUUID(), "king_damage", 3.0, Operation.ADD_NUMBER, EquipmentSlot.HAND);
-        meta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, dam);
+        meta.addAttributeModifier(Attribute.ATTACK_DAMAGE, dam);
 
         sword.setItemMeta(meta);
         return sword;
@@ -303,8 +303,8 @@ Bukkit.addRecipe(recipe);
         ItemStack axe = new ItemStack(Material.IRON_AXE);
         ItemMeta meta = axe.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Iron Clad Axe");
-        meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
-        meta.addEnchant(Enchantment.DURABILITY, 1, true);
+        meta.addEnchant(Enchantment.SHARPNESS, 1, true);
+        meta.addEnchant(Enchantment.UNBREAKING, 1, true);
         meta.setUnbreakable(false);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_UNBREAKABLE);
 
@@ -312,7 +312,7 @@ Bukkit.addRecipe(recipe);
         pdc.set(axeKey, PersistentDataType.BYTE, (byte)1);
 
         AttributeModifier dam = new AttributeModifier(UUID.randomUUID(), "axe_damage", 6.0, Operation.ADD_NUMBER, EquipmentSlot.HAND);
-        meta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, dam);
+        meta.addAttributeModifier(Attribute.ATTACK_DAMAGE, dam);
 
         axe.setItemMeta(meta);
         return axe;
@@ -322,7 +322,7 @@ Bukkit.addRecipe(recipe);
         ItemStack shield = new ItemStack(Material.SHIELD);
         ItemMeta meta = shield.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Royal Shield");
-        meta.addEnchant(Enchantment.DURABILITY, 1, true);
+        meta.addEnchant(Enchantment.UNBREAKING, 1, true);
         meta.setUnbreakable(false);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_UNBREAKABLE);
 
@@ -337,8 +337,8 @@ Bukkit.addRecipe(recipe);
         ItemStack bow = new ItemStack(Material.BOW);
         ItemMeta meta = bow.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Royal Bow");
-        meta.addEnchant(Enchantment.ARROW_DAMAGE, 1, true);
-        meta.addEnchant(Enchantment.DURABILITY, 1, true);
+        meta.addEnchant(Enchantment.POWER, 1, true);
+        meta.addEnchant(Enchantment.UNBREAKING, 1, true);
         meta.setUnbreakable(false);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_UNBREAKABLE);
 
@@ -353,8 +353,8 @@ Bukkit.addRecipe(recipe);
         ItemStack mace = new ItemStack(Material.IRON_AXE);
         ItemMeta meta = mace.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Rhopalon");
-        meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
-        meta.addEnchant(Enchantment.DURABILITY, 1, true);
+        meta.addEnchant(Enchantment.SHARPNESS, 1, true);
+        meta.addEnchant(Enchantment.UNBREAKING, 1, true);
         meta.setUnbreakable(false);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_UNBREAKABLE);
 
@@ -362,7 +362,7 @@ Bukkit.addRecipe(recipe);
         pdc.set(maceKey, PersistentDataType.BYTE, (byte)1);
 
         AttributeModifier dam = new AttributeModifier(UUID.randomUUID(), "mace_damage", 2.0, Operation.ADD_NUMBER, EquipmentSlot.HAND);
-        meta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, dam);
+        meta.addAttributeModifier(Attribute.ATTACK_DAMAGE, dam);
 
         mace.setItemMeta(meta);
         return mace;
@@ -476,9 +476,9 @@ Bukkit.addRecipe(recipe);
             // Victim: reduce max health but never below 2.0
             if (victim instanceof Player) {
                 Player pv = (Player) victim;
-                double vBase = pv.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue();
+                double vBase = pv.getAttribute(Attribute.MAX_HEALTH).getBaseValue();
                 double newV = Math.max(2.0, vBase - amount);
-                pv.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(newV);
+                pv.getAttribute(Attribute.MAX_HEALTH).setBaseValue(newV);
                 if (pv.getHealth() > newV) pv.setHealth(newV);
             } else {
                 // For non-player mobs, we don't touch max health but try to reduce current health (best effort)
@@ -487,9 +487,9 @@ Bukkit.addRecipe(recipe);
             }
 
             // Killer: increase max health up to cap
-            double kBase = killer.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue();
+            double kBase = killer.getAttribute(Attribute.MAX_HEALTH).getBaseValue();
             double newK = Math.min(MAX_ALLOWED_HEALTH, kBase + amount);
-            killer.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(newK);
+            killer.getAttribute(Attribute.MAX_HEALTH).setBaseValue(newK);
             // also heal the killer by the amount (but not to exceed max)
             double newHealth = Math.min(killer.getHealth() + amount, newK);
             killer.setHealth(newHealth);
@@ -506,7 +506,7 @@ Bukkit.addRecipe(recipe);
         Player dead = e.getEntity();
         // Reset their max health back to default
         try {
-            dead.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(DEFAULT_MAX_HEALTH);
+            dead.getAttribute(Attribute.MAX_HEALTH).setBaseValue(DEFAULT_MAX_HEALTH);
             if (dead.getHealth() > DEFAULT_MAX_HEALTH) dead.setHealth(DEFAULT_MAX_HEALTH);
         } catch (Exception ex) {
             // ignore
