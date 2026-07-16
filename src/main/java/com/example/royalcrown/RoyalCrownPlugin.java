@@ -235,7 +235,7 @@ Bukkit.addRecipe(recipe);
         p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, EFFECT_DURATION_TICKS, 1, true, false, true));
         p.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, EFFECT_DURATION_TICKS, 1, true, false, true));
         p.addPotionEffect(new PotionEffect(PotionEffectType.HASTE, EFFECT_DURATION_TICKS, 1, true, false, true));
-        p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, EFFECT_DURATION_TICKS, 1, true, false, true));
+        p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP_BOOST, EFFECT_DURATION_TICKS, 1, true, false, true));
         p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, EFFECT_DURATION_TICKS, 0, true, false, true));
         p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, EFFECT_DURATION_TICKS, 0, true, false, true));
         p.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, EFFECT_DURATION_TICKS, 0, true, false, true));
